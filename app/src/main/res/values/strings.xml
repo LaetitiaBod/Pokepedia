@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pokepedia</string>
+    <string name="button_pokedex">Pokedex</string>
 </resources>

@@ -1,13 +1,11 @@
 package com.example.pokepedia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-import java.util.List;
-
-import me.sargunvohra.lib.pokekotlin.*;
-
-public class PokemonListActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +13,9 @@ public class PokemonListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void showList(List<Pokemon> listPokemon) {
-
+    public void click_pokedex(View view) {
+        Intent randomIntent = new Intent(this, ListActivity.class);
+        startActivity(randomIntent);
     }
+
 }

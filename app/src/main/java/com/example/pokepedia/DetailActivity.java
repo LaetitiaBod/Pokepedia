@@ -1,6 +1,5 @@
 package com.example.pokepedia;
 
-import me.sargunvohra.lib.pokekotlin.*;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
