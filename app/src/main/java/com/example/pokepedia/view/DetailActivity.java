@@ -14,6 +14,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -67,6 +69,9 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     public void showDetails (String name, int id, int height, int weight, int base_exp, Sprite sprite) {
+
+        DecimalFormat df = new DecimalFormat("############0.00");
+
         TextView nameView = findViewById(R.id.name);
         nameView.setText(name);
 
@@ -75,10 +80,10 @@ public class DetailActivity extends AppCompatActivity {
         idView.setText("#"+idString);
 
         TextView heightView = findViewById(R.id.height);
-        heightView.setText("Height : "+height+" m");
+        heightView.setText("Height : "+df.format(height*0.1)+" m");
 
         TextView weightView = findViewById(R.id.weight);
-        weightView.setText("Weight : "+weight+" kg");
+        weightView.setText("Weight : "+df.format(weight*0.1)+" kg");
 
         TextView base_expView = findViewById(R.id.base_exp);
         base_expView.setText("Base experience : "+base_exp+" xp");

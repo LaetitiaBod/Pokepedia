@@ -68,14 +68,11 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         // - replace the contents of the view with that element
         final Pokemon currentPokemon = values.get(position);
         holder.txtHeader.setText(currentPokemon.getName());
-        holder.txtHeader.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = v.getContext();
-                Intent randomIntent = new Intent(context, DetailActivity.class);
-                randomIntent.putExtra("key_id", position + 1);
-                context.startActivity(randomIntent);
-            }
+        holder.txtHeader.setOnClickListener(v -> {
+            Context context = v.getContext();
+            Intent randomIntent = new Intent(context, DetailActivity.class);
+            randomIntent.putExtra("key_id", position + 1);
+            context.startActivity(randomIntent);
         });
         String id = String.valueOf(position+1);
         holder.txtFooter.setText("#"+id);
