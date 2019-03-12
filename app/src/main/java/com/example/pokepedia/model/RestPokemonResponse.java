@@ -1,4 +1,4 @@
-package com.example.pokepedia;
+package com.example.pokepedia.model;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ public class RestPokemonResponse {
     private String next;
     private String previous;
     private List<Pokemon> results;
+    private Pokemon pokemon;
 
     public Integer getCount() {
         return count;
@@ -33,11 +34,11 @@ public class RestPokemonResponse {
         this.previous = previous;
     }
 
-    public List<Pokemon> getResults() {
-        return results;
-    }
+    public List<Pokemon> getResults() { return results; }
 
     public void setResults(List<Pokemon> results) {
         this.results = results;
     }
+
+    public Pokemon getPokemon() { return pokemon; }
 }

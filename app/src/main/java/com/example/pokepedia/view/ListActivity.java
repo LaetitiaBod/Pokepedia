@@ -1,15 +1,23 @@
-package com.example.pokepedia;
+package com.example.pokepedia.view;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.example.pokepedia.model.Sprite;
+import com.example.pokepedia.restapi.PokemonRestAPI;
+import com.example.pokepedia.R;
+import com.example.pokepedia.model.Pokemon;
+import com.example.pokepedia.model.RestPokemonResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -18,7 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ListActivity extends Activity {
+public class ListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -28,11 +36,10 @@ public class ListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
         downloadList();
     }
 
-    private void downloadList() {
+    public void downloadList() {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -43,7 +50,6 @@ public class ListActivity extends Activity {
                 .build();
 
         PokemonRestAPI pokemonAPI = retrofit.create(PokemonRestAPI.class);
-
 
         Call<RestPokemonResponse> call = pokemonAPI.getListPokemon();
         call.enqueue(new Callback<RestPokemonResponse>() {
@@ -61,7 +67,7 @@ public class ListActivity extends Activity {
         });
     }
 
-    private void showList(List<Pokemon> input) {
+    public void showList(List<Pokemon> input) {
         recyclerView = findViewById(R.id.my_recycler_view);
         // use this setting to
         // improve performance if you know that changes

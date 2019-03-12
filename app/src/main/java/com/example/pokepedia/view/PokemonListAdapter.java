@@ -1,6 +1,9 @@
-package com.example.pokepedia;
+package com.example.pokepedia.view;
 
 import java.util.List;
+
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +11,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.pokepedia.R;
+import com.example.pokepedia.model.Pokemon;
+
 public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.ViewHolder> {
-    private List<String> values;
+    private List<Pokemon> values;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -28,7 +34,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         }
     }
 
-    public void add(int position, String item) {
+    public void add(int position, Pokemon item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -39,19 +45,17 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public PokemonListAdapter(List<String> myDataset) {
+    public PokemonListAdapter(List<Pokemon> myDataset) {
         values = myDataset;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public PokemonListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public PokemonListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
-        View v =
-                inflater.inflate(R.layout.row_layout, parent, false);
+        View v = inflater.inflate(R.layout.row_layout, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -62,16 +66,19 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = values.get(position);
-        holder.txtHeader.setText(name);
+        final Pokemon currentPokemon = values.get(position);
+        holder.txtHeader.setText(currentPokemon.getName());
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                Context context = v.getContext();
+                Intent randomIntent = new Intent(context, DetailActivity.class);
+                randomIntent.putExtra("key_id", position + 1);
+                context.startActivity(randomIntent);
             }
         });
-
-        holder.txtFooter.setText("Footer: " + name);
+        String id = String.valueOf(position+1);
+        holder.txtFooter.setText("#"+id);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -1,9 +1,11 @@
-package com.example.pokepedia;
+package com.example.pokepedia.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.example.pokepedia.R;
 
 public class MainActivity extends AppCompatActivity {
 
