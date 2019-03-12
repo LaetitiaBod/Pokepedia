@@ -1,4 +1,7 @@
-package com.example.pokepedia;
+package com.example.pokepedia.controller;
+
+import com.example.pokepedia.view.ListActivity;
+import com.example.pokepedia.model.Pokemon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +18,12 @@ public class PokemonController {
     public void onCreate() {
         List<Pokemon> listPokemon = downloadData();
         storeData(listPokemon);
-        //Lactivity.showList(listPokemon);
+        Lactivity.showList(listPokemon);
     }
 
     private List<Pokemon> downloadData() {
         List<Pokemon> list = new ArrayList<>();
-        //TODO implement with the api
-        //PokeApi pokeApi = new PokeApiClient();
-        //for(int i=0; i<=807; i++) {
-        //    Pokemon pk = pokeApi.getPokemon(i);
-        //    list.add(pk);
-        //}
+        Lactivity.downloadList();
         return list;
     }
 
