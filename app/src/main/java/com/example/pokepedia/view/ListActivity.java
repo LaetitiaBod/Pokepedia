@@ -1,6 +1,7 @@
 package com.example.pokepedia.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,10 +33,35 @@ public class ListActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     static final String BASE_URL = "https://pokeapi.co/api/v2/";
 
+    private static final String PREFS = "PREFS";
+    private static final String PREFS_NAME = "PREFS_NAME";
+    private static final String PREFS_ID = "PREFS_ID";
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+
+
+        /*
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
+
+        if(sharedPreferences.contains(PREFS_NAME) && sharedPreferences.contains(PREFS_ID)) {
+            String name = sharedPreferences.getString(PREFS_NAME, null);
+            int id =  sharedPreferences.getInt(PREFS_ID, 0);
+        } else {
+            sharedPreferences
+                    .edit()
+                    .putString(PREFS_NAME, "")
+                    .putInt(PREFS_ID, 1)
+                    .apply();
+        }
+        */
+
+
+
         downloadList();
     }
 
