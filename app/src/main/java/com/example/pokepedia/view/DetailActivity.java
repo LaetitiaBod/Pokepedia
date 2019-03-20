@@ -91,4 +91,10 @@ public class DetailActivity extends AppCompatActivity {
         ImageView spriteView = findViewById(R.id.icon_detail);
         Picasso.with(this).load(sprite.getFront_default()).into(spriteView);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+    }
 }

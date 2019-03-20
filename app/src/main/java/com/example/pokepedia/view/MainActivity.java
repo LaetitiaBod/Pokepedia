@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public void click_pokedex(View view) {
         Intent randomIntent = new Intent(this, ListActivity.class);
         startActivity(randomIntent);
+        overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
     }
 
 }
