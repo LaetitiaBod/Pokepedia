@@ -1,37 +1,26 @@
 package com.example.pokepedia.view;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
-import com.example.pokepedia.model.Sprite;
-import com.example.pokepedia.restapi.PokemonRestAPI;
 import com.example.pokepedia.R;
+import com.example.pokepedia.controller.ListController;
 import com.example.pokepedia.model.Pokemon;
-import com.example.pokepedia.model.RestPokemonResponse;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class ListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    static final String BASE_URL = "https://pokeapi.co/api/v2/";
+
+    private ListController listcontroller;
 
     private static final String PREFS = "PREFS";
     private static final String PREFS_NAME = "PREFS_NAME";
@@ -43,7 +32,9 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        listcontroller = new ListController(this);
 
+        listcontroller.onCreate();
 
         /*
         sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
@@ -60,37 +51,6 @@ public class ListActivity extends AppCompatActivity {
         }
         */
 
-
-
-        downloadList();
-    }
-
-    public void downloadList() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        PokemonRestAPI pokemonAPI = retrofit.create(PokemonRestAPI.class);
-
-        Call<RestPokemonResponse> call = pokemonAPI.getListPokemon();
-        call.enqueue(new Callback<RestPokemonResponse>() {
-            @Override
-            public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
-                RestPokemonResponse restPokemonResponse = response.body();
-                List<Pokemon> listPokemon = restPokemonResponse.getResults();
-                showList(listPokemon);
-            }
-
-            @Override
-            public void onFailure(Call<RestPokemonResponse> call, Throwable t) {
-                Log.d("ERREUR", "API K.O.");
-            }
-        });
     }
 
     public void showList(List<Pokemon> input) {
