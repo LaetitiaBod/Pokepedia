@@ -108,4 +108,11 @@ public class ListActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+    }
+
 }
