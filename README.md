@@ -45,7 +45,13 @@ https://github.com/LaetitiaBod/Pokepedia
 
 ### Ecran du détail
 
-- Affichage en détail d'un Pokémon. Caractéristiques choisis : nom, numéro de Pokédex, taille, poids, expérience de base.
+- Affichage en détail d'un Pokémon
+- Caractéristiques choisis : 
+	- Nom
+	- Numéro de Pokédex
+	- Taille
+	- Poids
+	- Expérience de base
 
 <img src="img_readme/detail.jpg">
 
