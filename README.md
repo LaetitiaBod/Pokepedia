@@ -39,13 +39,18 @@ https://github.com/LaetitiaBod/Pokepedia
 
 ### Ecran de la liste
 
+- Liste des 807 Pokémon existants
+
 <img src="img_readme/liste.jpg">
 
 ### Ecran du détail
 
+- Affichage en détail d'un Pokémon. Caractéristiques choisis : nom, numéro de Pokédex, taille, poids, expérience de base.
+
 <img src="img_readme/detail.jpg">
 
-## Problèmes, contraintes etc
+## Problèmes, remarques
 
-- Images pour les Pokémon de la liste
+- Les images ne sont pas affichées pour les Pokémon de la liste
 - Les SharedPreferences enregistrent uniquement le dernier détail cliqué (et la liste)
+- Certains Pokémon n'ont pas d'image (en particulier, à partir de 803)
