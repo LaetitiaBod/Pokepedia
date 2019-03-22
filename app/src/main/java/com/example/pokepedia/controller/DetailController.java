@@ -1,9 +1,11 @@
 package com.example.pokepedia.controller;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.pokepedia.model.RestIdResponse;
+import com.example.pokepedia.model.Sprite;
 import com.example.pokepedia.restapi.PokemonRestAPI;
 import com.example.pokepedia.view.DetailActivity;
 import com.google.gson.Gson;
@@ -21,7 +23,7 @@ public class DetailController {
     private static final String BASE_URL = "https://pokeapi.co/api/v2/";
     private DetailActivity activity;
     private static final String sprite_saved = "sprite_saved";
-/*
+
     private static final String PREFS = "_PREFS";
     private static final String PREFS_NAME = "P_POKEMON";
     private static final String PREFS_ID = "P_ID";
@@ -30,13 +32,13 @@ public class DetailController {
     private static final String PREFS_BASE_EXP = "P_BASE_EXP";
     private static final String PREFS_SPRITE = "P_SPRITE";
     private SharedPreferences sharedPreferences;
-*/
+
     public DetailController(DetailActivity activity) {
         this.activity = activity;
     }
 
     public void onCreate() {
-        /*
+
         sharedPreferences = activity.getBaseContext().getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         //id que l'on récupère de listactivity //pokémon sur lequel on clique
         int id_position = activity.getIntent().getIntExtra("key_id", 1);
@@ -62,7 +64,7 @@ public class DetailController {
             activity.showDetails(name, id_position, height, weight, base_exp, sprite);
 
         } else {
-        */
+
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .create();
@@ -89,7 +91,7 @@ public class DetailController {
                             restIdResponse.getSprites());
 
                     activity.getIntent().putExtra(sprite_saved, restIdResponse.getSprites().getFront_default());
-                    /*
+
                     sharedPreferences
                             .edit()
                             .putString(PREFS_NAME, restIdResponse.getName())
@@ -99,7 +101,6 @@ public class DetailController {
                             .putInt(PREFS_BASE_EXP, restIdResponse.getBase_experience())
                             .putString(PREFS_SPRITE, restIdResponse.getSprites().getFront_default())
                             .apply();
-                    */
                 }
 
                 @Override
@@ -107,6 +108,6 @@ public class DetailController {
                     Log.d("ERREUR", "API K.O.");
                 }
             });
-        //}
+        }
     }
 }
