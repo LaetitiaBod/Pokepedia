@@ -34,7 +34,7 @@ https://github.com/LaetitiaBod/Pokepedia
 
 - Simple menu avec un bouton pour passer à l'écran suivant
 
-<img src="img_readme/menu.jpg" alt="menu">
+<img src="img_readme/menu.jpg">
 
 
 ### Ecran de la liste
