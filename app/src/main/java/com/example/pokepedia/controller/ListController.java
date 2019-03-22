@@ -3,6 +3,7 @@ package com.example.pokepedia.controller;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.example.pokepedia.R;
 import com.example.pokepedia.model.Pokemon;
 import com.example.pokepedia.model.RestPokemonResponse;
 import com.example.pokepedia.restapi.PokemonRestAPI;
