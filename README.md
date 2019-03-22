@@ -39,8 +39,11 @@ https://github.com/LaetitiaBod/Pokepedia
 
 ### Ecran de la liste
 
-<img src="img_readme/detail.jpg">
+<img src="img_readme/liste.jpg">
+
 ### Ecran du détail
+
+<img src="img_readme/detail.jpg">
 
 ## Problèmes, contraintes etc
 
