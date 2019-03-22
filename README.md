@@ -19,17 +19,29 @@ https://github.com/LaetitiaBod/Pokepedia
 ````
 ## Consignes respectées
 
-iujhbn,;
+- Deux écrans minimum : un avec une liste, un avec le détail d'un élément
+- Appel WebService à une API Rest
+- Stockage des données en cache
+- Fonctionnalités supplémentaires :
+	- Architecture MVC
+	- Gitflow
+	- Animation entre écrans
+	- Ecran d'accueil
 
 ## Fonctionnalités
 
-### écran 1
+### Ecran d'accueil
 
-### écran 2
+- Simple menu avec un bouton pour passer à l'écran suivant
 
-### écran 3
+<img src="img_readme/menu.jpg">
 
-//screeshots
+
+### Ecran de la liste
+
+### Ecran du détail
 
 ## Problèmes, contraintes etc
-dtfyguhi
+
+- Images pour les Pokémon de la liste
+- Les SharedPreferences enregistrent uniquement le dernier détail cliqué (et la liste)
