@@ -1,26 +1,35 @@
 # Pokepedia
 
+## Présentation
 
-présentation
-  blabla
+Application mobile codée en Java, utilisant l'architecture MVC.
 
-prérequis
-  installer android studio
-  github
-  apirest
-  recyclerview
-  
-consignes respectées
+L'application affiche la liste de tous les Pokémon existants et leurs détails. Les informations sont récupérées sur une API.
 
-fonctionnalités
+## Prérequis
+
+- Installation d'Android Studio
+- RecyclerView
+- Projet déposé sur github
+- Appels vers une API REST
+- Stockage en cache avec les SharedPreferences
+
+````
+https://github.com/LaetitiaBod/Pokepedia
+````
+## Consignes respectées
+
+iujhbn,;
+
+## Fonctionnalités
+
+### écran 1
+
+### écran 2
+
+### écran 3
 
 //screeshots
 
-problèmes, contraintes etc
-
-générer fichier apk et upload sur github :
-  build -> build apk
-  localisation : Pokepedia -> app -> build -> outputs -> apk -> debug
-  
-  https://github.com/LudoCarlu/Pokemon
-  
+## Problèmes, contraintes etc
+dtfyguhi
