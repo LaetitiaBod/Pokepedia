@@ -55,6 +55,15 @@ https://github.com/LaetitiaBod/Pokepedia
 
 <img src="img_readme/detail.jpg">
 
+### Animations entre écrans
+
+Celles ci sont à peine visibles, car naturelles.
+Mais si on y prête attention, des animations ont été intégrées entre :
+- ecran 1 -> 2
+- ecran 3 -> 2
+- ecran 2 -> 1
+Il n'y a pas d'animation entre ecran 2 -> 3. Ainsi, on peut observer la différence
+
 ## Problèmes, remarques
 
 - Les images ne sont pas affichées pour les Pokémon de la liste
